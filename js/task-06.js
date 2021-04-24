@@ -16,9 +16,15 @@ const inputValidLength = Number(input.getAttribute('data-length'));
 input.addEventListener('blur', onInputBlur);
 
 function onInputBlur(event) {
-  event.currentTarget.value.length === inputValidLength
-    ? input.classList.add('valid') ||
-      input.classList.replace('invalid', 'valid')
-    : input.classList.add('invalid') ||
-      input.classList.replace('valid', 'invalid');
+  if (event.currentTarget.value.length === inputValidLength) {
+    input.classList.add('valid');
+    input.classList.remove('invalid');
+  } else {
+    input.classList.add('invalid');
+    input.classList.remove('valid');
+  }
+
+  // console.log(
+  //   `Введено количество символов ${event.currentTarget.value.length}`,
+  // );
 }

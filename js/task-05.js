@@ -16,6 +16,9 @@ refs.input.value = '';
 refs.input.addEventListener('input', onInputChange);
 
 function onInputChange(event) {
-  //   console.log(event.currentTarget.value);
+  // console.log(event.currentTarget.value);
+  if (event.currentTarget.value === '') {
+    return (refs.output.textContent = 'незнакомец');
+  }
   refs.output.textContent = event.currentTarget.value;
 }
